@@ -22,6 +22,10 @@ const initRouter = () => {
       action: () => import('../view/about-info/about-info')
     },
     {
+      path: '/task/:id',
+      component: 'task-item'
+    },
+    {
       path: '(.*)',
       component: 'page-not-found'
     }

@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { TaskService } from "../../service/TaskService";
+import { Router } from '@vaadin/router';
 
 export class TaskListItem extends LitElement {
   static styles = css`
@@ -48,7 +49,7 @@ export class TaskListItem extends LitElement {
   }
 
   edit(event) {
-    console.log('navigate to edit page');
+    Router.go(`/task/${this.id}`);
   }
 
   delete(event) {

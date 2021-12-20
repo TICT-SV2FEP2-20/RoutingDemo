@@ -29,6 +29,10 @@ export class TaskItem extends LitElement {
   }
 
   render() {
+    console.log(location.params);
+    if (location.params) {
+      console.log(location.params.id);
+    }
     return html`
       <mwc-textfield
         name="task"  
