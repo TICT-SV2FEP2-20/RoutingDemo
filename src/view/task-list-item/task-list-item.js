@@ -36,6 +36,7 @@ export class TaskListItem extends LitElement {
         <mwc-formfield label="${this.task}">
           <mwc-checkbox ?checked=${this.done} @change=${this.toggle}></mwc-checkbox>
         </mwc-formfield>
+        <mwc-icon @click=${this.edit}>create</mwc-icon>
         <mwc-icon @click=${this.delete}>delete</mwc-icon>
       </div>
     `;
@@ -44,6 +45,10 @@ export class TaskListItem extends LitElement {
   toggle(event) {
     this.done = event.target.checked;
     this.taskService.updateTask(this.id, this.done);
+  }
+
+  edit(event) {
+    console.log('navigate to edit page');
   }
 
   delete(event) {
