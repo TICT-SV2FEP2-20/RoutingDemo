@@ -18,7 +18,8 @@ const initRouter = () => {
     },   
     {
       path: '/about',
-      component: 'about-info'
+      component: 'about-info',
+      action: () => import('../view/about-info/about-info')
     },
     {
       path: '(.*)',
