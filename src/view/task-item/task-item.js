@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { Task } from '../../model/Task';
 import { TaskService } from '../../service/TaskService';
 
-export class AddTask extends LitElement {
+export class TaskItem extends LitElement {
   static styles = css`
     :host {
       display: grid;
@@ -67,4 +67,4 @@ export class AddTask extends LitElement {
 
 }
 
-customElements.define('add-task', AddTask);
+customElements.define('task-item', TaskItem);

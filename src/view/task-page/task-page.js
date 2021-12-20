@@ -10,7 +10,7 @@ export class TaskPage extends LitElement {
 
   render() {
     return html`
-      <add-task></add-task>
+      <task-item></task-item>
       <task-list></task-list>
     `;
   }
