@@ -7,8 +7,13 @@ import '@material/mwc-icon-button';
 import '@material/mwc-drawer';
 import '@material/mwc-top-app-bar';
 
+import '@vaadin/router';
+
+import './service/AppRouting';
+
 import './view/add-task/add-task';
 import './view/task-list/task-list';
 import './view/task-item/task-item';
 import './view/about-info/about-info';
 import './view/drawer-menu/drawer-menu';
+import './view/task-page/task-page';

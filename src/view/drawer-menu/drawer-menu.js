@@ -23,8 +23,8 @@ export class DrawerMenu extends LitElement {
       <mwc-drawer hasHeader type="modal" ?open=${this.menuOpen} @MDCTopAppBar:nav=${(e)=>this.openMenu(e)} @MDCDrawer:closed=${(e) =>this.closeMenu(e)}>
         <span slot="title">Menu</span>
         <div>
-          <p><a href="./about.html">About</a></p>
-          <p><a href="./index.html">Todo list</a></p>
+          <p><a href="/about">About</a></p>
+          <p><a href="/">Todo list</a></p>
         </div>
         <div slot="appContent">
           <mwc-top-app-bar>
