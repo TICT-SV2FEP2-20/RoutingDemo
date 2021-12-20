@@ -2,18 +2,21 @@
   "devDependencies": {
     "@web/dev-server": "^0.1.28"
   },
-  "scripts": {
-    "start": "web-dev-server --node-resolve --app-index src/index.html --watch --open"
-  },
   "dependencies": {
     "@material/mwc-button": "^0.25.3",
     "@material/mwc-checkbox": "^0.25.3",
+    "@material/mwc-drawer": "^0.25.3",
     "@material/mwc-formfield": "^0.25.3",
     "@material/mwc-icon": "^0.25.3",
+    "@material/mwc-icon-button": "^0.25.3",
     "@material/mwc-textfield": "^0.25.3",
+    "@material/mwc-top-app-bar": "^0.25.3",
     "lit": "^2.0.2",
     "pwa-helpers": "^0.9.1",
     "redux": "^4.1.2",
     "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "web-dev-server --node-resolve --app-index src/index.html --watch --open"
   }
 }

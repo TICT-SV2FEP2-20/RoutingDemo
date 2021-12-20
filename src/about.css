@@ -8,24 +8,17 @@ body {
   height: 100vh;
 }
 
-add-task {
-  grid-area: addtask;
-  background-color: cadetblue;
-}
-
-task-list {
-  grid-area: tasklist;
-  background-color: burlywood;
-}
-
 drawer-menu {
   grid-area: menu;
-
-  display: inline-grid;
-  grid-template-rows: auto 1fr;
+  display: grid;
+  grid-template-rows: 1fr;
   grid-template-areas: 
-    "addtask"
-    "tasklist";
+    "about";
+}
+
+about-info {
+  grid-area: about;
+  background-color: burlywood;
 }
 
 div {
