@@ -1,5 +1,11 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
 body {
-  height: 99vh;
+  height: 100vh;
 }
 
 add-task {
@@ -15,10 +21,8 @@ task-list {
 div {
   height: 100%;
   display: grid;
-  grid-template-rows: 10px auto 1fr 10px;
+  grid-template-rows: auto 1fr;
   grid-template-areas: 
-    ". .        ."
-    ". addtask  ."
-    ". tasklist ."
-    ". .        .";
+    "addtask "
+    "tasklist";
 }
