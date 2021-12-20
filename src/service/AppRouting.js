@@ -11,7 +11,11 @@ const initRouter = () => {
     { 
       path: '/',
       component: 'task-page'
-    },    
+    },
+    {
+      path: '/index.html',
+      component: 'task-page'
+    },   
     {
       path: '/about',
       component: 'about-info'
