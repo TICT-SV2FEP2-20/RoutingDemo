@@ -16,4 +16,5 @@ import './view/task-list/task-list';
 import './view/task-item/task-item';
 import './view/about-info/about-info';
 import './view/drawer-menu/drawer-menu';
+import './view/page-not-found/page-not-found';
 import './view/task-page/task-page';

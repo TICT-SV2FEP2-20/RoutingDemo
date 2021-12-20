@@ -15,6 +15,10 @@ const initRouter = () => {
     {
       path: '/about',
       component: 'about-info'
+    },
+    {
+      path: '(.*)',
+      component: 'page-not-found'
     }
   ]);
 }
