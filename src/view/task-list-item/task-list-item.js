@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { TaskService } from "../../service/TaskService";
 
-export class TaskItem extends LitElement {
+export class TaskListItem extends LitElement {
   static styles = css`
     mwc-icon {
       vertical-align: 30%;
@@ -51,4 +51,4 @@ export class TaskItem extends LitElement {
   }
 }
 
-customElements.define('task-item', TaskItem);
+customElements.define('task-list-item', TaskListItem);

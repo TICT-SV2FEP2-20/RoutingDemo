@@ -13,7 +13,7 @@ import './service/AppRouting';
 
 import './view/add-task/add-task';
 import './view/task-list/task-list';
-import './view/task-item/task-item';
+import './view/task-list-item/task-list-item';
 import './view/drawer-menu/drawer-menu';
 import './view/page-not-found/page-not-found';
 import './view/task-page/task-page';
