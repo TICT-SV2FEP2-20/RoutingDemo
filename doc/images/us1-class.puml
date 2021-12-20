@@ -1,0 +1,7 @@
+@startuml
+hide circle
+class Task {
+  - task: String 
+  - done: Boolean 
+}
+@enduml

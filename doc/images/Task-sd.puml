@@ -1,0 +1,12 @@
+@startuml 
+
+state Task {
+  state "Todo" as todo 
+  state "Done" as done 
+  [*] --> todo : addTask(id, task) #1
+  todo --> done : updateTask(id, true) #2
+  done --> todo : updateTask(id, false) #3
+  todo --> [*] : deleteTask(id) #4
+  done --> [*] : deleteTask(id) #4
+}
+@enduml
