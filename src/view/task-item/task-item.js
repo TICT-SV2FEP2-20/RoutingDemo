@@ -1,8 +1,11 @@
 import { LitElement, html, css } from 'lit';
+import { connect } from 'pwa-helpers';
+import { Router } from '@vaadin/router';
+import { store } from '../../service/AppService';
 import { Task } from '../../model/Task';
 import { TaskService } from '../../service/TaskService';
 
-export class TaskItem extends LitElement {
+export class TaskItem extends connect(store)(LitElement) {
   static styles = css`
     :host {
       display: grid;
@@ -23,16 +26,41 @@ export class TaskItem extends LitElement {
     }
   `;
 
+  static get properties() {
+    return {
+      value: {
+        type: String,
+        reflect: true
+      },
+      id: { type: String },
+      tasks: { type: Array },
+      task: { type: Object }
+    }
+  }
+
   constructor() {
     super();
     this.taskService = new TaskService();
+    this.id = '';
+    this.tasks = [];
+  }
+
+  stateChanged(state) {
+    this.tasks = state.taskReducer.tasks;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.id = location.pathname;
+    this.id = this.id.slice(this.id.lastIndexOf('/')+1);
+    if (this.id) {
+      this.task = this.tasks.filter((task) => task.id === this.id)[0]; 
+    }
+    
   }
 
   render() {
-    console.log(location.params);
-    if (location.params) {
-      console.log(location.params.id);
-    }
+    this.value = this.task ? this.task.task : '';
     return html`
       <mwc-textfield
         name="task"  
@@ -41,7 +69,10 @@ export class TaskItem extends LitElement {
         value="${this.value}"
         @keyup=${(e) => this.keyUpHandler(e)}
       ></mwc-textfield>
-      <mwc-button @click="${this.clickHandler}" raised>ADD</mwc-button>    
+      ${this.task 
+          ? html`<mwc-button @click="${this.clickHandler}" raised>UPDATE</mwc-button>`
+          : html`<mwc-button @click="${this.clickHandler}" raised>ADD</mwc-button>`
+      }    
     `;
   }
 
@@ -60,12 +91,22 @@ export class TaskItem extends LitElement {
   addTask(value) {
     if (value && value!=='') {
       // the user has entered a value within the textfield
-      const newTask = new Task(value, false);
-      this.taskService.addTask(newTask);
+      if (!this.task) {
+        const newTask = new Task(value, false);
+        this.taskService.addTask(newTask);
+      } else {
+        this.task.task = value;
+        // this.taskService.updateTask(taskId,) @$# kan de tekst nog niet updaten ...
+        console.log(this.task);
+      }
       
       // clearing the textfield again.
       this.value='';
       this.shadowRoot.querySelector('mwc-textfield').value='';
+
+      if (this.task) {
+        Router.go('/');
+      }
     }
   }
 

@@ -49,7 +49,7 @@ export class TaskListItem extends LitElement {
   }
 
   edit(event) {
-    Router.go(`/task/${this.id}`);
+    Router.go(`/tasks/${this.id}`);
   }
 
   delete(event) {

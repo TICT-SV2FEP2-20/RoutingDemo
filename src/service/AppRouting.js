@@ -22,8 +22,11 @@ const initRouter = () => {
       action: () => import('../view/about-info/about-info')
     },
     {
-      path: '/task/:id',
-      component: 'task-item'
+      path: '/tasks/:id',
+      component: 'task-item',
+      action: (context, command) => {
+          console.log(context, command);
+      }
     },
     {
       path: '(.*)',
