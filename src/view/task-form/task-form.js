@@ -59,7 +59,7 @@ export class TaskForm extends connect(store)(LitElement) {
   };
 
   render() {
-    this.value = this.task ? this.task.task : '';
+    this.value = this.task ? this.task.description : '';
     return html`
       <mwc-textfield
         name="task"  
@@ -95,7 +95,7 @@ export class TaskForm extends connect(store)(LitElement) {
         this.taskService.addTask(newTask);
       } else {
         this.task.description = value;
-        this.taskService.updateTask(taskId, this.task); 
+        this.taskService.updateTask(this.task.id, this.task); 
       }
       
       // clearing the textfield again.
