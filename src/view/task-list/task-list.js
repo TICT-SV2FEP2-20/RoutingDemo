@@ -46,7 +46,7 @@ export class TaskList extends connect(store)(LitElement) {
     <div>
       ${
         this.tasks.map((task) => {
-          return html`<task-item id="${task.id}" task="${task.task}" ?done=${task.done}></task-item>`
+          return html`<task-list-item id="${task.id}" task="${task.description}" ?done=${task.done}></task-item>`
         })
       }
     </div>

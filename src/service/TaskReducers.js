@@ -16,8 +16,8 @@ export const TaskReducers = (state = initialState, action) => {
         ...state,
         tasks: state.tasks.map(
           (task) => {
-            if (task.id === action.taskId) {
-              task.done = action.done;
+            if (task.id === action.task.id) {
+              task = action.task;
             }
             return task;
           }

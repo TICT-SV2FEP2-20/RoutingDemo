@@ -3,9 +3,9 @@ import {v4 as uuidv4} from 'uuid';
 export class Task {
   id;
 
-  constructor(task, done) {
+  constructor(description, done) {
     this.id = uuidv4(); // used to generate a unieke identifier
-    this.task = task;
+    this.description = description;
     this.done = done;
   }
 }

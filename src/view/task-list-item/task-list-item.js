@@ -1,7 +1,10 @@
 import { LitElement, html, css } from "lit";
 import { TaskService } from "../../service/TaskService";
+import { connect } from 'pwa-helpers';
+import { store } from '../../service/AppService';
+import { Router } from "@vaadin/router";
 
-export class TaskItem extends LitElement {
+export class TaskListItem extends connect(store)(LitElement) {
   static styles = css`
     mwc-icon {
       vertical-align: 30%;
@@ -30,20 +33,29 @@ export class TaskItem extends LitElement {
     this.taskService = new TaskService();
   }
 
+  stateChanged(state) {
+    this.task = state.taskReducer.tasks.find((task) => task.id === this.id);
+  }
+
   render() {
     return html`
       <div>
-        <mwc-formfield label="${this.task}">
-          <mwc-checkbox ?checked=${this.done} @change=${this.toggle}></mwc-checkbox>
+        <mwc-formfield label="${this.task.description}">
+          <mwc-checkbox ?checked=${this.task.done} @change=${this.toggle}></mwc-checkbox>
         </mwc-formfield>
+        <mwc-icon @click=${this.edit}>edit</mwc-icon>
         <mwc-icon @click=${this.delete}>delete</mwc-icon>
       </div>
     `;
   }
 
   toggle(event) {
-    this.done = event.target.checked;
-    this.taskService.updateTask(this.id, this.done);
+    this.task.done = event.target.checked;
+    this.taskService.updateTask(this.id, this.task);
+  }
+
+  edit(event) {
+    Router.go(`tasks/${this.id}`);
   }
 
   delete(event) {
@@ -51,4 +63,4 @@ export class TaskItem extends LitElement {
   }
 }
 
-customElements.define('task-item', TaskItem);
+customElements.define('task-list-item', TaskListItem);

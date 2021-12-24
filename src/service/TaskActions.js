@@ -9,11 +9,10 @@ export const addTask = (task) => {
   }
 }
 
-export const updateTask = (id, done) => {
+export const updateTask = (id, task) => {
   return {
     type: UPDATE_TASK,
-    taskId: id,
-    done: done
+    task: task
   }
 }
 
