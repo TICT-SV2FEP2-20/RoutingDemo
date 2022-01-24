@@ -5,25 +5,25 @@ window.addEventListener('load', () => {
 });
 
 const initRouter = () => {
-  const githubRepo = '/RoutingDemo';
+  const urlPrefix = 'RoutingDemo/';
   const routerOutput = document.querySelector('#router-output');
   const router = new Router(routerOutput);
   router.setRoutes([
     { 
-      path: `${githubRepo}/`,
+      path: `${urlPrefix}`,
       component: 'task-page'
     },
     {
-      path: `${githubRepo}/index.html`,
+      path: `${urlPrefix}index.html`,
       component: 'task-page'
     },   
     {
-      path: `${githubRepo}/about`,
+      path: `${urlPrefix}about`,
       component: 'about-info',
       action: () => import('../view/about-info/about-info')
     },
     {
-      path: `${githubRepo}/tasks/:id`,
+      path: `${urlPrefix}tasks/:id`,
       component: 'task-form'
     },
     {
