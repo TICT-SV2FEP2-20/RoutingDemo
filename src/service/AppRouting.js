@@ -5,29 +5,25 @@ window.addEventListener('load', () => {
 });
 
 const initRouter = () => {
-  const urlPrefix = '/';
+  const urlPrefix = '/RoutingDemo';
   const routerOutput = document.querySelector('#router-output');
   const router = new Router(routerOutput);
   router.setRoutes([
     { 
-      path: `/RoutingDemo/`,
-      component: 'task-page'
-    },
-    { 
-      path: `${urlPrefix}`,
+      path: `${urlPrefix}/`,
       component: 'task-page'
     },
     {
-      path: `${urlPrefix}index.html`,
+      path: `${urlPrefix}/index.html`,
       component: 'task-page'
     },   
     {
-      path: `${urlPrefix}about`,
+      path: `${urlPrefix}/about`,
       component: 'about-info',
       action: () => import('../view/about-info/about-info')
     },
     {
-      path: `${urlPrefix}tasks/:id`,
+      path: `${urlPrefix}/tasks/:id`,
       component: 'task-form'
     },
     {
