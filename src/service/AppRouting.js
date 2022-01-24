@@ -10,7 +10,7 @@ const initRouter = () => {
   const router = new Router(routerOutput);
   router.setRoutes([
     { 
-      path: `/RoutingDemo`,
+      path: `/RoutingDemo/`,
       component: 'task-page'
     },
     { 
