@@ -5,10 +5,14 @@ window.addEventListener('load', () => {
 });
 
 const initRouter = () => {
-  const urlPrefix = 'RoutingDemo/';
+  const urlPrefix = '/';
   const routerOutput = document.querySelector('#router-output');
   const router = new Router(routerOutput);
   router.setRoutes([
+    { 
+      path: `RoutingDemo/`,
+      component: 'task-page'
+    },
     { 
       path: `${urlPrefix}`,
       component: 'task-page'
