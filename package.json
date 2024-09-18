@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@web/dev-server": "^0.1.28"
+    "@web/dev-server": "^0.4.6"
   },
   "scripts": {
     "start": "web-dev-server --node-resolve --app-index src/index.html --watch --open"
